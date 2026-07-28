@@ -1,0 +1,43 @@
+general {
+        colors = true
+        interval = 5
+        color_good = "#ffffff"
+        color_bad = "#ffffff"
+        color_degraded = "#ffffff"
+}
+
+order += "wireless wlp0s20f3"
+order += "battery 0"
+order += "disk /"
+order += "load"
+order += "memory"
+order += "tztime local"
+
+wireless wlp0s20f3 {
+    format_up = "W: (%quality at %essid) %ip"
+    format_down = "W: down"
+}
+
+battery 0 {
+    format = "%status %percentage %remaining"
+    last_full_capacity = true
+}
+
+
+disk "/" {
+        format = "HDD: %avail"
+}
+
+load {
+        format = "CPU: %1min"
+}
+
+memory {
+        format = "RAM: %available"
+        threshold_degraded = "1G"
+        format_degraded = "RAM LOW: %available"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
